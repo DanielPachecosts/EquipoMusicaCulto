@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SongService } from 'src/app/services/song.service';
-import { SavedSong, Song } from 'src/app/utils/songs-dto';
+import { SavedSong } from 'src/app/utils/songs-dto';
 
 @Component({
   selector: 'app-songs',
@@ -39,7 +39,7 @@ export class SongsComponent implements OnInit {
       name: 'Canción 4',
       tone: 'Si, Fa',
       youtubeUrl: 'https://www.youtube.com/watch?v=video4',
-      style:'reflexion',
+      style: 'reflexion',
       observations: 'Cuarto tema con guitarra acústica.',
     },
     {
@@ -47,7 +47,7 @@ export class SongsComponent implements OnInit {
       name: 'Canción 5',
       tone: 'Si, Fa',
       youtubeUrl: 'https://www.youtube.com/watch?v=video5',
-      style:'reflexion',
+      style: 'reflexion',
       observations: 'Quinta canción con voces armoniosas.',
     },
   ];
@@ -57,7 +57,7 @@ export class SongsComponent implements OnInit {
   constructor(private songService: SongService) {}
 
   ngOnInit(): void {
-    this.songService.getAll('','').subscribe((data) => {
+    this.songService.getAll('', '').subscribe((data) => {
       this.songService.songs.next(data);
     });
 

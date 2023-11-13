@@ -1,9 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { CookiesService } from 'src/app/services/cookies.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -18,13 +13,12 @@ import { changeNav } from 'src/app/animations';
   animations: [changeNav],
 })
 export class NavComponent implements OnInit {
-  
   // Current user session
   user: Payload | null = null;
 
   // Reference to NAV tag
   @ViewChild('navRef', { static: true }) navRef!: ElementRef<HTMLDivElement>;
-  
+
   // Variable to check background
   isClear = false;
 
@@ -35,7 +29,7 @@ export class NavComponent implements OnInit {
     '/register': false,
     '/login': false,
     '/verses': false,
-    '/songs/addNewSong':false
+    '/songs/addNewSong': false,
   };
 
   // Initialize navigation variables
@@ -49,7 +43,7 @@ export class NavComponent implements OnInit {
   constructor(
     private cookieService: CookiesService,
     private userService: UsersService,
-    private router: Router,
+    private router: Router
   ) {
     this.initializeNavVars();
   }
@@ -63,7 +57,6 @@ export class NavComponent implements OnInit {
 
     // Update is Clear variable according to the destination path
     this.router.events.subscribe((event) => {
-
       // It is necessary to filter the router events by the last one
       if (event instanceof NavigationEnd) {
         this.isClear = this.routeColorMap[event.url];

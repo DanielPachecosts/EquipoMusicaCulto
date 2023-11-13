@@ -7,7 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { SongService } from 'src/app/services/song.service';
-import { SavedSong, Song, UpdateSongDto } from 'src/app/utils/songs-dto';
+import { SavedSong, UpdateSongDto } from 'src/app/utils/songs-dto';
 import { CookiesService } from 'src/app/services/cookies.service';
 import { GsapAnimationService } from 'src/app/services/gsap-animation.service';
 

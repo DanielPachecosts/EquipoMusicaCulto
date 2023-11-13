@@ -6,7 +6,6 @@ import { User, UserSaved, UpdateUser, Payload } from '../utils/users.dto';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CookiesService } from './cookies.service';
 import { tap } from 'rxjs/operators';
-import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root',
@@ -19,8 +18,7 @@ export class UsersService implements UserServiceInterface {
 
   constructor(
     private http: HttpClient,
-    private cookieService: CookiesService,
-    private tokenService: TokenService
+    private cookieService: CookiesService
   ) {}
 
   create(user: User) {
@@ -36,7 +34,7 @@ export class UsersService implements UserServiceInterface {
       .pipe(
         tap((token) => {
           this.cookieService.saveToken(token);
-          this.getProfile(token).subscribe()
+          this.getProfile(token).subscribe();
         })
       );
   }

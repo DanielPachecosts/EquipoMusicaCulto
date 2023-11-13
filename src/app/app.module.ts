@@ -51,8 +51,7 @@ import { GridComponent } from './components/grid/grid.component';
     SingleVerseComponent,
     SearchBarComponent,
     MisionComponent,
-    GridComponent
-
+    GridComponent,
   ],
   imports: [
     BrowserModule,
